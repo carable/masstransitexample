@@ -13,6 +13,18 @@ namespace Carable.MassTransit.Controllers
             return View();
         }
 
+        public ActionResult List()
+        {
+            var mvcName = typeof(Controller).Assembly.GetName();
+            var isMono = Type.GetType("Mono.Runtime") != null;
+
+            ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
+            ViewData["Runtime"] = isMono ? "Mono" : ".NET";
+
+            return View(MvcApplication.repository.List());
+        }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

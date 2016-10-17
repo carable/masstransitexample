@@ -1,0 +1,28 @@
+﻿@model Carable.MassTransit.Models.ReceivedMessages
+<h2>Welcome to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>
+<table>
+    <thead>
+        <tr><th>Value</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Values)
+        {
+            <tr>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<table>
+    <thead>
+        <tr><th>DelayedValue</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Delayed)
+        {
+            <tr>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
